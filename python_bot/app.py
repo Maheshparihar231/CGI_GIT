@@ -6,9 +6,11 @@ app = Flask(__name__)
 def check():
     return jsonify({'message' : 'api working ....'})
 
+@app.route('/set' ,methods=['POST'])
+def set():
+    data = request.get_json()
+    data = data['data']
+    return jsonify({'data' : 'msg received'})
 
-# if __name__ == '__main__':
-#     app.run(debug=True)
-
-
-
+if __name__ == '__main__':
+    app.run(debug=True)
